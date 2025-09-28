@@ -1,0 +1,21 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  background-color: black;
+  height: 50px;
+  padding-top: 32px;
+  padding-left: 72px;
+  padding-right: 72px;
+  padding-bottom: 32px;
+}
+
+.button-container {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-title {
+  color: white;
+}

@@ -1,0 +1,43 @@
+.overall-footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: fit-content;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 72px;
+  padding-right: 72px;
+  background-color: black;
+  /* border: 2px solid brown; */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 16px;
+}
+
+.footer-text {
+  color: white;
+}
+
+.bottom-div {
+  text-align: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-right: 16px;
+  padding-left: 16px;
+  border-top: 1px solid;
+  border-color: #4b5563;
+}
+
+.copyright-text {
+  color: white;
+}
+
+.options {
+  display: flex;
+  gap: 8px;
+}
