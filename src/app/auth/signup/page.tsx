@@ -1,18 +1,23 @@
-import AuthLayout, {AuthLayoutProps} from "@/components/layouts/authLayout";
+import AuthLayout, { AuthLayoutProps } from "@/components/layouts/authLayout";
 import SignupContent from "@/components/content/auth/signup/signupContent";
 
 export default function Page() {
-    const authPageLayoutProps: AuthLayoutProps = {
-        headerProps: {
-            type: "signup"
-        },
-        title: "Sign up",
-        subtitle: "To sign up, please type in your email address."
-    }
+  const authPageLayoutProps: AuthLayoutProps = {
+    headerProps: {
+      type: "login",
+    },
+    title: "Welcome Back",
+    subtitle: "To sign in, please type in your email address",
+  };
 
-    return (
-        <AuthLayout {...authPageLayoutProps}>
-            <SignupContent/>
-        </AuthLayout>
-    )
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        width: "100%",
+      }}
+    >
+      <SignupContent />
+    </div>
+  );
 }

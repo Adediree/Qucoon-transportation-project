@@ -1,11 +1,36 @@
 "use client";
 import "./page.css";
-import { BaseButton, BaseDatePicker, BaseInput } from "qucoon-components";
+import {
+  BaseButton,
+  BaseDatePicker,
+  BaseInput,
+  ModernSelect,
+  ModernSelectOption,
+} from "qucoon-components";
 import { Star, Map, MessageCircleMore, ScanQrCode } from "lucide-react";
 import { DestinationCard } from "@/components/layouts/DestinationCard";
 import { RouteCard } from "@/components/layouts/RouteCard";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
+  const router = useRouter();
+  const locationOptions = [
+    { value: "", label: "Select location" },
+    { value: "lagos", label: "Lagos" },
+    { value: "abuja", label: "Abuja" },
+    { value: "port-harcourt", label: "Port Harcourt" },
+    { value: "kano", label: "Kano" },
+    { value: "ibadan", label: "Ibadan" },
+  ];
+  const destinationOptions = [
+    { value: "", label: "Select location" },
+    { value: "lagos", label: "Lagos" },
+    { value: "abuja", label: "Abuja" },
+    { value: "port-harcourt", label: "Port Harcourt" },
+    { value: "kano", label: "Kano" },
+    { value: "ibadan", label: "Ibadan" },
+  ];
+
   return (
     <div className="overall-container">
       <div className="container-1">
@@ -18,22 +43,69 @@ export default function LandingPage() {
       </div>
       <div className="container-2">
         <div className="ride-details">
-          <div style={{ width: "250px" }}>
-            <BaseInput
-              label="Where from?"
-              name={"name"}
-              inputProps={{ placeholder: "Origin" }}
-              labelStyle={{ color: "white" }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <label
               style={{
-                fontFamily: "Poppins",
-                backgroundColor: "none",
-                background: "none",
-                // width: "250px",
-                // border: "1px solid red",
+                fontSize: "0.875rem",
+                fontWeight: "500",
+                color: "white",
               }}
-            />
+            >
+              Where from?
+            </label>
+            <select
+              style={{
+                width: "250px",
+                padding: "10px 8px",
+                paddingRight: "32px",
+                borderRadius: "6px",
+                border: "1px solid #D0D5DD",
+                backgroundColor: "#1a1a1a",
+                color: "white",
+                fontSize: "0.875rem",
+                cursor: "pointer",
+                outline: "none",
+              }}
+            >
+              {locationOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
-          <div style={{ width: "250px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <label
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: "500",
+                color: "white",
+              }}
+            >
+              Where To?
+            </label>
+            <select
+              style={{
+                width: "250px",
+                padding: "10px 8px",
+                paddingRight: "32px",
+                borderRadius: "6px",
+                border: "1px solid #D0D5DD",
+                backgroundColor: "#1a1a1a",
+                color: "white",
+                fontSize: "0.875rem",
+                cursor: "pointer",
+                outline: "none",
+              }}
+            >
+              {destinationOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* <div style={{ width: "250px" }}>
             <BaseInput
               label="Where To?"
               name={"name"}
@@ -46,7 +118,7 @@ export default function LandingPage() {
                 // width: "250px",
               }}
             />
-          </div>
+          </div> */}
           <BaseDatePicker
             label="Departure Date"
             labelStyle={{ color: "white" }}

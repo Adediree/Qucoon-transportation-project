@@ -9,6 +9,8 @@
   padding-left: 72px;
   padding-right: 72px;
   padding-bottom: 32px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .button-container {

@@ -29,7 +29,7 @@ const DashboardLayout = ({ children, ...props }: DashboardLayoutProps) => {
         // height: "max-content",
       }}
     >
-      <NavBar title="Qucoon Metro" />
+      <NavBar title="Ugrr.net" />
       <main
         style={{
           // flex: "1 1 auto",

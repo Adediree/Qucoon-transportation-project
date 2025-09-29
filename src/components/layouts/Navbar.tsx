@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navbar.css";
 import { BaseButton } from "qucoon-components";
+import { useRouter } from "next/navigation";
+import { RouteConstant } from "@/utilities/constants/routeConstant";
 
 // type LinkItem = {
 //   name: string;
@@ -27,6 +29,7 @@ export const NavBar: React.FC<NavBarProps> = ({
   // setActiveLink,
   onNavigate,
 }) => {
+  const router = useRouter();
   return (
     <div className="nav-container">
       {title && (
@@ -38,6 +41,7 @@ export const NavBar: React.FC<NavBarProps> = ({
       <div className="button-container">
         <BaseButton
           text="Login"
+          onClick={() => router.push(RouteConstant.auth.login.path)}
           textStyle={{ color: "white" }}
           style={{
             backgroundColor: "none",
@@ -48,6 +52,7 @@ export const NavBar: React.FC<NavBarProps> = ({
         />
         <BaseButton
           text="Sign up"
+          onClick={() => router.push(RouteConstant.auth.signup.path)}
           textStyle={{ color: "white" }}
           style={{
             backgroundColor: "none",
