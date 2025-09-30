@@ -1,0 +1,96 @@
+.bus-card {
+  display: flex;
+  gap: 4px;
+  background-color: #1a1a1a;
+  flex: 1;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 16px;
+  /* width: max-content; */
+}
+
+.bus-titles {
+  display: flex;
+  gap: 16px;
+}
+
+.bus-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bus-titles {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.travel-details {
+  display: flex;
+  gap: 56px;
+}
+.time {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time-description {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.ride-time {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.utilities {
+  display: flex;
+  gap: 16px;
+}
+
+.wifi {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.bus-company {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.bus-type {
+  color: #f79009;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.confirmation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount {
+  color: #f79009;
+  font-size: 1.7rem;
+  font-weight: 600;
+}

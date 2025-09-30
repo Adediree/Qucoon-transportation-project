@@ -1,0 +1,36 @@
+.booking-overall-container {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  height: 100%;
+  background-color: black;
+  padding-top: 32px;
+  padding-left: 72px;
+  padding-right: 72px;
+  gap: 32px;
+}
+
+.results {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: #1a1a1a;
+  /* border: 2px solid yellow; */
+  border-radius: 16px;
+}
+
+.destination {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.selection {
+  display: flex;
+  gap: 24px;
+  /* justify-content: space-between; */
+}

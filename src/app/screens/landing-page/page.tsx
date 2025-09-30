@@ -11,8 +11,14 @@ import { Star, Map, MessageCircleMore, ScanQrCode } from "lucide-react";
 import { DestinationCard } from "@/components/layouts/DestinationCard";
 import { RouteCard } from "@/components/layouts/RouteCard";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { RouteConstant } from "@/utilities/constants/routeConstant";
 
 export default function LandingPage() {
+  const [fromLocation, setFromLocation] = useState("");
+  const [toLocation, setToLocation] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
+  const [showResults, setShowResults] = useState(false);
   const router = useRouter();
   const locationOptions = [
     { value: "", label: "Select location" },
@@ -30,6 +36,18 @@ export default function LandingPage() {
     { value: "kano", label: "Kano" },
     { value: "ibadan", label: "Ibadan" },
   ];
+
+  const handleSearch = () => {
+    if (!fromLocation || !toLocation) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    setShowResults(true);
+    router.push(
+      `${RouteConstant.screens.bookingScreen.path}?from=${fromLocation}&to=${toLocation}&date=${departureDate}`
+    );
+  };
 
   return (
     <div className="overall-container">
@@ -54,6 +72,8 @@ export default function LandingPage() {
               Where from?
             </label>
             <select
+              value={fromLocation}
+              onChange={(e) => setFromLocation(e.target.value)}
               style={{
                 width: "250px",
                 padding: "10px 8px",
@@ -85,6 +105,8 @@ export default function LandingPage() {
               Where To?
             </label>
             <select
+              value={toLocation}
+              onChange={(e) => setToLocation(e.target.value)}
               style={{
                 width: "250px",
                 padding: "10px 8px",
@@ -122,11 +144,14 @@ export default function LandingPage() {
           <BaseDatePicker
             label="Departure Date"
             labelStyle={{ color: "white" }}
+            // value={departureDate}
+            // onChange={(date) => setDepartureDate(date)}
             style={{ width: "400px", paddingLeft: "32px" }}
           />
           <BaseButton
             text="Search"
             textStyle={{ color: "black" }}
+            onClick={handleSearch}
             style={{
               backgroundColor: "white",
               width: "150px",

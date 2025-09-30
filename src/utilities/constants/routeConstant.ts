@@ -35,6 +35,11 @@ export const RouteConstant = {
       name: "",
       path: "/screens/landing-page",
     },
+
+    bookingScreen: {
+      name: "",
+      path: "/screens/booking-screen",
+    },
   },
 
   dashboard: {
