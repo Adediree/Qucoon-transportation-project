@@ -94,14 +94,9 @@ const InitiateSignupForm = (
           <p className="texts">Get started with us!</p>
         </div>
         <form className="input-flex">
-          {/* <BaseInput
-            type="email"
-            placeholder="Enter your email"
-            label="Enter email"
-            labelStyle={{ color: "white" }}
-            style={{ width: "300px" }}
-          /> */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          >
             <BaseInput
               type="email"
               placeholder="Enter your email"
@@ -116,17 +111,6 @@ const InitiateSignupForm = (
               labelStyle={{ color: "white" }}
               style={{ width: "300px" }}
             />
-            {/* <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <p
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: "500",
-                  color: "white",
-                }}
-              >
-                Forgot password
-              </p>
-            </div> */}
           </div>
           <BaseButton
             text="Sign Up"
