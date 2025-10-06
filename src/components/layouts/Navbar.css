@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
   background-color: black;
   height: 50px;
   padding-top: 32px;
@@ -11,6 +10,18 @@
   padding-bottom: 32px;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+}
+
+.title-text {
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .button-container {
@@ -18,6 +29,79 @@
   gap: 4px;
 }
 
-.nav-title {
-  color: white;
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile dropdown */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #111; /* slightly lighter than black for visibility */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 16px 72px;
+  gap: 12px;
+  box-sizing: border-box;
+  border-top: 1px solid #333;
+  z-index: 10;
+}
+
+/* ============================
+   RESPONSIVENESS
+   ============================ */
+
+@media (max-width: 768px) {
+  .button-container {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-title {
+    font-size: 1.1rem;
+  }
+
+  .mobile-menu {
+    padding: 16px 32px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .nav-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1536px) {
+  .nav-title {
+    font-size: 1.45rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .nav-title {
+    font-size: 1.5rem;
+  }
 }

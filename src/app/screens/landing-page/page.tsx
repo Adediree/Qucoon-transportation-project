@@ -18,6 +18,7 @@ export default function LandingPage() {
   const [fromLocation, setFromLocation] = useState("");
   const [toLocation, setToLocation] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const [singleDate, setSingleDate] = useState("");
   const [showResults, setShowResults] = useState(false);
   const router = useRouter();
   const locationOptions = [
@@ -35,6 +36,27 @@ export default function LandingPage() {
     { value: "port-harcourt", label: "Port Harcourt" },
     { value: "kano", label: "Kano" },
     { value: "ibadan", label: "Ibadan" },
+  ];
+
+  const topKeywordsOptions: ModernSelectOption[] = [
+    {
+      label: "Delivery Speed",
+      value: "Delivery Speed",
+    },
+
+    {
+      label: "Customer Service",
+      value: "Customer Service",
+    },
+
+    {
+      label: "Food Quality",
+      value: "Food Quality",
+    },
+    {
+      label: "Pricing",
+      value: "Pricing",
+    },
   ];
 
   const handleSearch = () => {
@@ -126,6 +148,14 @@ export default function LandingPage() {
                 </option>
               ))}
             </select>
+            {/* <ModernSelect
+              placeholderLabel="Keywords"
+              // onOptionSelect={}
+              selectOptions={topKeywordsOptions}
+              size="small"
+              label="Top Keywords"
+              style={{ fontSize: "16px", color: "#667085", background:"none" }}
+            /> */}
           </div>
           {/* <div style={{ width: "250px" }}>
             <BaseInput
@@ -143,14 +173,20 @@ export default function LandingPage() {
           </div> */}
           <BaseDatePicker
             label="Departure Date"
-            labelStyle={{ color: "white" }}
+            labelStyle={{ color: "white", fontFamily: "Poppins" }}
+            selected={singleDate}
+            // onSelect={setSingleDate}
             // value={departureDate}
             // onChange={(date) => setDepartureDate(date)}
-            style={{ width: "400px", paddingLeft: "32px" }}
+            style={{
+              // width: "400px",
+              paddingLeft: "32px",
+              fontFamily: "Poppins",
+            }}
           />
           <BaseButton
             text="Search"
-            textStyle={{ color: "black" }}
+            textStyle={{ color: "black", fontFamily: "Poppins" }}
             onClick={handleSearch}
             style={{
               backgroundColor: "white",

@@ -1,11 +1,12 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import "./page.css";
 import { ArrowRight } from "lucide-react";
 import { BusFilter } from "@/components/layouts/BusFilter";
 import { BusCard } from "@/components/layouts/BusCard";
 import { useState } from "react";
+import { RouteConstant } from "@/utilities/constants/routeConstant";
 
 const BookingSreen = () => {
   const searchParams = useSearchParams();
@@ -14,10 +15,19 @@ const BookingSreen = () => {
   const to = searchParams.get("to");
   const date = searchParams.get("date");
 
+  const router = useRouter();
+
   const [seats, setSeats] = useState(24);
 
-  const handleSelectSeat = () => {
+  const handleSelectSeat = (bus: any) => {
     setSeats((prev) => (prev > 0 ? prev - 1 : 0));
+
+    router.push(
+      `${RouteConstant.screens.confirmScreen.path}?from=${from}&to=${to}&date=${date}` +
+        `&company=${bus.BusCompany}&type=${bus.BusType}` +
+        `&departure=${bus.DepartureTime}&arrival=${bus.ArrivalTime}` +
+        `&price=${bus.Price}&seats=${bus.Seats}`
+    );
   };
 
   return (

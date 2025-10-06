@@ -1,0 +1,23 @@
+.payment {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.payment-description {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+}
+
+.payment-subtitle {
+  color: #e5e7eb; /* light gray */
+  font-size: 0.8rem;
+  line-height: 1.4;
+}

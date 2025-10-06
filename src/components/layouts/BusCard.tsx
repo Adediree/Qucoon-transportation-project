@@ -13,7 +13,14 @@ type BusCardProps = {
   ArrivalTime: string;
   Price: string;
   Seats: number;
-  onSelectSeat: () => void;
+  onSelectSeat: (bus: {
+    BusCompany: string;
+    BusType: string;
+    DepartureTime: string;
+    ArrivalTime: string;
+    Price: string;
+    Seats: number;
+  }) => void;
 };
 
 export const BusCard: React.FC<BusCardProps> = ({
@@ -85,7 +92,16 @@ export const BusCard: React.FC<BusCardProps> = ({
         <BaseButton
           text="Select Seat"
           textStyle={{ color: "White" }}
-          onClick={onSelectSeat}
+          onClick={() =>
+            onSelectSeat({
+              BusCompany,
+              BusType,
+              DepartureTime,
+              ArrivalTime,
+              Price,
+              Seats,
+            })
+          }
           disabled={isSoldOut}
           style={{
             backgroundColor: "#f79009",

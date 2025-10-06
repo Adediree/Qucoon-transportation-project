@@ -1,6 +1,6 @@
 "use client";
 import "./Signupform.css";
-import { BaseButton, BaseInput, BasePhoneNumberInput } from "qore-components";
+import { BaseButton, BaseInput, BasePhoneNumberInput } from "qucoon-components";
 import {
   InitiateEnrollmentRequest,
   initiateEnrollmentRequestInit,
@@ -98,14 +98,14 @@ const InitiateSignupForm = (
             style={{ display: "flex", flexDirection: "column", gap: "20px" }}
           >
             <BaseInput
-              type="email"
+              // type="email"
               placeholder="Enter your email"
               label="Enter Email"
               labelStyle={{ color: "white" }}
               style={{ width: "300px" }}
             />
             <BaseInput
-              type="password"
+              // type="password"
               placeholder="Enter your password"
               label="Enter password"
               labelStyle={{ color: "white" }}

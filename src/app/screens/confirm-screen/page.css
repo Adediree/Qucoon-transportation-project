@@ -1,0 +1,153 @@
+.overall-confirm-container {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  height: 100%;
+  background-color: black;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 72px;
+  padding-right: 72px;
+  /* gap: 32px; */
+  /* border: 2px solid yellow; */
+  align-items: center;
+}
+
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  /* border: 3px solid green; */
+  /* align-items: center; */
+}
+
+.confirm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* width: max-content; */
+  background-color: #f79009;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.header-main {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+.header-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: #1a1a1a;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.ride-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-info {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+
+.details-div {
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  padding-right: 48px;
+}
+
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.route {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.route-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.route-description {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.ride-route {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.price {
+  color: #f79009;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.extra-info {
+  display: flex;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 80px;
+  padding-right: 80px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.route-container-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.instruction-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.buttons-div {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  /* border: 1px solid red; */
+}

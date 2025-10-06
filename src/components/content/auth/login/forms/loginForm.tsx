@@ -2,7 +2,7 @@
 
 import "./Loginform.css";
 import { useFormik } from "formik";
-import { BaseButton, BaseInput } from "qore-components";
+import { BaseButton, BaseInput } from "qucoon-components";
 import {
   LoginRequest,
   loginRequestInit,
@@ -56,14 +56,14 @@ const LoginForm = (
         </div>
         <form className="form-flex">
           <BaseInput
-            type="email"
+            // type="email"
             placeholder="Enter your email"
             label="Enter email"
             labelStyle={{ color: "white" }}
           />
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <BaseInput
-              type="password"
+              // type="password"
               placeholder="Enter your password"
               label="Enter password"
               labelStyle={{ color: "white" }}
@@ -105,6 +105,7 @@ const LoginForm = (
             <BaseButton
               text="Sign up"
               textStyle={{ color: "#F79009" }}
+              onClick={() => router.push(RouteConstant.auth.signup.path)}
               style={{
                 backgroundColor: "none",
                 background: "none",

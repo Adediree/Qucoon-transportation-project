@@ -60,7 +60,7 @@ export const BusFilter: React.FC<BusFilterProps> = ({
           // value={fromLocation}
           // onChange={(e) => setFromLocation(e.target.value)}
           style={{
-            width: "200px",
+            // width: "200px",
             padding: "10px 8px",
             paddingRight: "32px",
             borderRadius: "6px",
@@ -95,7 +95,7 @@ export const BusFilter: React.FC<BusFilterProps> = ({
           // value={fromLocation}
           // onChange={(e) => setFromLocation(e.target.value)}
           style={{
-            width: "200px",
+            // width: "200px",
             padding: "10px 8px",
             paddingRight: "32px",
             borderRadius: "6px",
@@ -130,7 +130,7 @@ export const BusFilter: React.FC<BusFilterProps> = ({
           // value={fromLocation}
           // onChange={(e) => setFromLocation(e.target.value)}
           style={{
-            width: "200px",
+            // width: "200px",
             padding: "10px 8px",
             paddingRight: "32px",
             borderRadius: "6px",

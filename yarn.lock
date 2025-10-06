@@ -3096,9 +3096,9 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
-qore-components@^0.7.6:
+qucoon-components@^0.7.6:
   version "0.7.6"
-  resolved "https://registry.yarnpkg.com/qore-components/-/qore-components-0.7.6.tgz#c74db74237cd31390ba23537a687c7876c73eac0"
+  resolved "https://registry.yarnpkg.com/qucoon-components/-/qucoon-components-0.7.6.tgz#c74db74237cd31390ba23537a687c7876c73eac0"
   integrity sha512-alRzqucdF6cQ071nCDhKvUhcQNY2X+muviizI6ZWDmJNJq47bR82xkHzP9Xg6hBEOuRDvK9ueSTHPkIMTnPIOw==
   dependencies:
     "@fluentui/react-avatar" "^9.6.37"

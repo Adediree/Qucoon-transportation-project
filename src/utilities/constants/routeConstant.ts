@@ -40,6 +40,10 @@ export const RouteConstant = {
       name: "",
       path: "/screens/booking-screen",
     },
+    confirmScreen: {
+      name: "",
+      path: "/screens/confirm-screen",
+    },
   },
 
   dashboard: {

@@ -265,3 +265,163 @@
   padding-right: 72px;
   /* border: 1px solid red; */
 }
+
+/* ==============================
+   RESPONSIVENESS
+   ============================== */
+
+/* Large tablets and below (≤1024px) */
+@media (max-width: 1024px) {
+  .container-2 {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .ride-details {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feedback-container {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .destination-container,
+  .Container-4 .destination-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .destination-card,
+  .destination-1,
+  .destination-2,
+  .destination-3 {
+    width: 45%;
+  }
+
+  .route-container {
+    width: 45%;
+  }
+
+  .text-1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* Tablets and small laptops (≤768px) */
+@media (max-width: 768px) {
+  .container-1 {
+    min-height: 400px;
+  }
+
+  .hero-text-container {
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .text-1 {
+    font-size: 2.2rem;
+  }
+
+  .text-2 {
+    font-size: 1rem;
+  }
+
+  .ride-details {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .ride-details select,
+  .ride-details input,
+  .ride-details .BaseDatePicker,
+  .ride-details button {
+    width: 100% !important;
+  }
+
+  .feedback-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .customer-rating {
+    width: 100%;
+  }
+
+  .destination-container,
+  .Container-4 .destination-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .destination-card,
+  .destination-1,
+  .destination-2,
+  .destination-3 {
+    width: 100%;
+  }
+
+  .route-container {
+    width: 100%;
+  }
+
+  .Container-3,
+  .Container-4 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .header-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .container-2 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .ride-details {
+    padding: 16px;
+  }
+
+  .feedback-container {
+    gap: 24px;
+  }
+
+  .text-1 {
+    font-size: 1.8rem;
+  }
+
+  .text-2 {
+    font-size: 0.9rem;
+  }
+
+  .customer-rating {
+    width: 100%;
+  }
+
+  .destination-container,
+  .Container-4 .destination-container {
+    gap: 12px;
+  }
+
+  .destination-card,
+  .destination-1,
+  .destination-2,
+  .destination-3 {
+    min-height: 200px;
+  }
+
+  .header-text {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}

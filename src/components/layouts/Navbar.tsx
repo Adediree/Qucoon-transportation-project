@@ -1,22 +1,15 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { BaseButton } from "qucoon-components";
 import { useRouter } from "next/navigation";
 import { RouteConstant } from "@/utilities/constants/routeConstant";
-
-// type LinkItem = {
-//   name: string;
-//   path: string;
-//   icon: JSX.Element;
-// };
+import { Menu, X } from "lucide-react";
 
 interface NavBarProps {
   logoSrc?: string;
   alt?: string;
   title?: string;
-  // links: LinkItem[];
-  // activeLink: string;
-  // setActiveLink: (link: string) => void;
   onNavigate?: (path: string) => void;
 }
 
@@ -24,12 +17,11 @@ export const NavBar: React.FC<NavBarProps> = ({
   logoSrc,
   alt,
   title,
-  // links,
-  // activeLink,
-  // setActiveLink,
   onNavigate,
 }) => {
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="nav-container">
       {title && (
@@ -38,16 +30,27 @@ export const NavBar: React.FC<NavBarProps> = ({
         </div>
       )}
 
+      {/* Hamburger menu button (mobile only) */}
+      <button
+        className="hamburger"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? (
+          <X size={28} color="white" />
+        ) : (
+          <Menu size={28} color="white" />
+        )}
+      </button>
+
+      {/* Regular desktop buttons */}
       <div className="button-container">
         <BaseButton
           text="Login"
           onClick={() => router.push(RouteConstant.auth.login.path)}
           textStyle={{ color: "white" }}
           style={{
-            backgroundColor: "none",
             background: "none",
-            // border: "1px solid",
-            // borderColor: "#D0D5DD",
           }}
         />
         <BaseButton
@@ -55,57 +58,38 @@ export const NavBar: React.FC<NavBarProps> = ({
           onClick={() => router.push(RouteConstant.auth.signup.path)}
           textStyle={{ color: "white" }}
           style={{
-            backgroundColor: "none",
             background: "none",
-            // border: "1px solid",
-            // borderColor: "#D0D5DD",
           }}
         />
       </div>
+
+      {/* Mobile dropdown menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <BaseButton
+            text="Login"
+            onClick={() => {
+              router.push(RouteConstant.auth.login.path);
+              setIsMenuOpen(false);
+            }}
+            textStyle={{ color: "white" }}
+            style={{
+              background: "none",
+            }}
+          />
+          <BaseButton
+            text="Sign up"
+            onClick={() => {
+              router.push(RouteConstant.auth.signup.path);
+              setIsMenuOpen(false);
+            }}
+            textStyle={{ color: "white" }}
+            style={{
+              background: "none",
+            }}
+          />
+        </div>
+      )}
     </div>
-
-    // <div className="navbar">
-    //   <div className="nav-edit">
-    //     {logoSrc && (
-    //       <div className="title-container">
-    //         <img src={logoSrc} alt={alt || "logo"} />
-    //       </div>
-    //     )}
-
-    //     <div className="navbar-buttons-container">
-    //       {title && (
-    //         <div className="title-text">
-    //           <p className="nav-title">{title}</p>
-    //         </div>
-    //       )}
-
-    //       {links.map((link) => (
-    //         <button
-    //           key={link.name}
-    //           className={`nav-buttons ${
-    //             activeLink === link.name ? "active" : ""
-    //           }`}
-    //           onClick={() => {
-    //             setActiveLink(link.name);
-    //             onNavigate(link.path);
-    //           }}
-    //         >
-    //           {React.cloneElement(link.icon, {
-    //             fill: activeLink === link.name ? "#F44A0E" : "#4B5563",
-    //             color: activeLink === link.name ? "#F44A0E" : "#4B5563",
-    //           })}
-    //           <p
-    //             className="nav-button-text"
-    //             style={{
-    //               color: activeLink === link.name ? "black" : "#4B5563",
-    //             }}
-    //           >
-    //             {link.name}
-    //           </p>
-    //         </button>
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
   );
 };

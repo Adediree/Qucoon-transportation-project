@@ -1,152 +1,153 @@
-import React, {CSSProperties, SVGProps} from "react";
-import BaseAvatar, {BaseAvatarProps} from "@/components/ui/avatar/BaseAvatar";
-import {BaseButton, BaseButtonProps, CloseIcon, Typography} from "qore-components";
+import React, { CSSProperties, SVGProps } from "react";
+import BaseAvatar, { BaseAvatarProps } from "@/components/ui/avatar/BaseAvatar";
+import {
+  BaseButton,
+  BaseButtonProps,
+  CloseIcon,
+  Typography,
+} from "qucoon-components";
 import styles from "./baseModalLayout.module.scss";
 
 export type BaseModalLayoutProps = {
-    modalTitle?: string;
-    modalTitleStyle?: CSSProperties;
-    modalHeaderStyle?: CSSProperties;
-    modalSubtitle?: string;
-    modalSubtitleStyle?: CSSProperties;
-    modalTextHeaderStyle?: CSSProperties;
-    endBtnProps?: BaseButtonProps;
-    startBtnProps?: BaseButtonProps;
-    startAvatarProps?: BaseAvatarProps;
-    startIcon?: React.FC<SVGProps<SVGSVGElement>>;
-    startIconProps?: React.SVGProps<SVGSVGElement>;
-    startIconStyle?: CSSProperties;
-    endIcon?: React.FC<SVGProps<SVGSVGElement>>;
-    endIconProps?: React.SVGProps<SVGSVGElement>;
-    endIconStyle?: CSSProperties;
-    textAlign?: "left" | "center" | "right";
-    childrenContainerStyle?: CSSProperties;
-    showCloseIcon?: boolean;
-    onClose?: () => void;
+  modalTitle?: string;
+  modalTitleStyle?: CSSProperties;
+  modalHeaderStyle?: CSSProperties;
+  modalSubtitle?: string;
+  modalSubtitleStyle?: CSSProperties;
+  modalTextHeaderStyle?: CSSProperties;
+  endBtnProps?: BaseButtonProps;
+  startBtnProps?: BaseButtonProps;
+  startAvatarProps?: BaseAvatarProps;
+  startIcon?: React.FC<SVGProps<SVGSVGElement>>;
+  startIconProps?: React.SVGProps<SVGSVGElement>;
+  startIconStyle?: CSSProperties;
+  endIcon?: React.FC<SVGProps<SVGSVGElement>>;
+  endIconProps?: React.SVGProps<SVGSVGElement>;
+  endIconStyle?: CSSProperties;
+  textAlign?: "left" | "center" | "right";
+  childrenContainerStyle?: CSSProperties;
+  showCloseIcon?: boolean;
+  onClose?: () => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const BaseModalLayout = ({
-                             startIcon: StartIcon,
-                             endIcon: EndIcon,
-                             startBtnProps,
-                             endBtnProps,
-                             ...props
-                         }: BaseModalLayoutProps) => {
-    // Determine which icon to use for the end position
-    const FinalEndIcon = props.showCloseIcon ? CloseIcon : EndIcon;
+  startIcon: StartIcon,
+  endIcon: EndIcon,
+  startBtnProps,
+  endBtnProps,
+  ...props
+}: BaseModalLayoutProps) => {
+  // Determine which icon to use for the end position
+  const FinalEndIcon = props.showCloseIcon ? CloseIcon : EndIcon;
 
-    return (
+  return (
+    <div
+      {...props}
+      className={`${styles.container} ${props.className || ""}`}
+      style={{
+        ...props.style,
+      }}
+    >
+      {/* Header Section */}
+      <div
+        className={styles.header}
+        style={{
+          ...props.modalHeaderStyle,
+        }}
+      >
+        {/* Start Icon */}
+        {StartIcon && (
+          <StartIcon
+            {...props.startIconProps}
+            style={{ ...props.startIconStyle }}
+          />
+        )}
+
+        {/* Avatar */}
+        {props.startAvatarProps && <BaseAvatar {...props.startAvatarProps} />}
+
+        {/* Title/Subtitle Area */}
         <div
-            {...props}
-            className={`${styles.container} ${props.className || ""}`}
-            style={{
-                ...props.style
-            }}
+          className={styles.headerText}
+          style={{
+            ...props.modalTextHeaderStyle,
+          }}
         >
-            {/* Header Section */}
-            <div
-                className={styles.header}
-                style={{
-                    ...props.modalHeaderStyle
-                }}
+          {props.modalTitle && (
+            <Typography
+              size="lg"
+              weight={"semibold"}
+              style={{
+                ...props.modalTitleStyle,
+              }}
             >
-                {/* Start Icon */}
-                {StartIcon && (
-                    <StartIcon
-                        {...props.startIconProps}
-                        style={{...props.startIconStyle}}
-                    />
-                )}
+              {props.modalTitle}
+            </Typography>
+          )}
 
-                {/* Avatar */}
-                {props.startAvatarProps && (
-                    <BaseAvatar {...props.startAvatarProps} />
-                )}
-
-                {/* Title/Subtitle Area */}
-                <div
-                    className={styles.headerText}
-                    style={{
-                        ...props.modalTextHeaderStyle
-                    }}
-                >
-                    {props.modalTitle && (
-                        <Typography
-                            size="lg"
-                            weight={"semibold"}
-                            style={{
-                                ...props.modalTitleStyle
-                            }}
-                        >
-                            {props.modalTitle}
-                        </Typography>
-                    )}
-
-                    {props.modalSubtitle && (
-                        <Typography
-                            className={styles.subtitle}
-                            style={{
-                                ...props.modalSubtitleStyle
-                            }}
-                        >
-                            {props.modalSubtitle}
-                        </Typography>
-                    )}
-                </div>
-
-                {/* End Icon */}
-                {FinalEndIcon && (
-                    <FinalEndIcon
-                        {...props.endIconProps}
-                        onClick={props.showCloseIcon
-                            ? props.onClose
-                            : props.endIconProps?.onClick
-                        }
-                        style={{
-                            color: "var(--color-gray-500)",
-                            cursor: "pointer",
-                            ...props.endIconStyle
-                        }}
-                    />
-                )}
-            </div>
-
-            {/* Content Section */}
-            {props.children && (
-                <div
-                    className={styles.content}
-                    style={{
-                        borderBottom: (startBtnProps || endBtnProps)
-                            ? "1px solid var(--gray--2)"
-                            : "",
-                        ...props.childrenContainerStyle
-                    }}
-                >
-                    {props.children}
-                </div>
-            )}
-
-            {/* Footer Section */}
-            {(startBtnProps || endBtnProps) && (
-                <div className={styles.footer}>
-                    <BaseButton
-                        size="small"
-                        variant="secondary"
-                        {...startBtnProps}
-                        style={{flex: 1, ...startBtnProps?.style}}
-                        textStyle={{...startBtnProps?.textStyle}}
-                    />
-
-                    <BaseButton
-                        size="small"
-                        variant="primary"
-                        {...endBtnProps}
-                        style={{flex: 1, ...endBtnProps?.style}}
-                    />
-                </div>
-            )}
+          {props.modalSubtitle && (
+            <Typography
+              className={styles.subtitle}
+              style={{
+                ...props.modalSubtitleStyle,
+              }}
+            >
+              {props.modalSubtitle}
+            </Typography>
+          )}
         </div>
-    );
+
+        {/* End Icon */}
+        {FinalEndIcon && (
+          <FinalEndIcon
+            {...props.endIconProps}
+            onClick={
+              props.showCloseIcon ? props.onClose : props.endIconProps?.onClick
+            }
+            style={{
+              color: "var(--color-gray-500)",
+              cursor: "pointer",
+              ...props.endIconStyle,
+            }}
+          />
+        )}
+      </div>
+
+      {/* Content Section */}
+      {props.children && (
+        <div
+          className={styles.content}
+          style={{
+            borderBottom:
+              startBtnProps || endBtnProps ? "1px solid var(--gray--2)" : "",
+            ...props.childrenContainerStyle,
+          }}
+        >
+          {props.children}
+        </div>
+      )}
+
+      {/* Footer Section */}
+      {(startBtnProps || endBtnProps) && (
+        <div className={styles.footer}>
+          <BaseButton
+            size="small"
+            variant="secondary"
+            {...startBtnProps}
+            style={{ flex: 1, ...startBtnProps?.style }}
+            textStyle={{ ...startBtnProps?.textStyle }}
+          />
+
+          <BaseButton
+            size="small"
+            variant="primary"
+            {...endBtnProps}
+            style={{ flex: 1, ...endBtnProps?.style }}
+          />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default BaseModalLayout;
@@ -154,7 +155,7 @@ export default BaseModalLayout;
 // import React, {CSSProperties, SVGProps} from "react";
 // import BaseButton, {BaseButtonProps} from "@/components/ui/button/BaseButton";
 // import BaseAvatar, {BaseAvatarProps} from "@/components/ui/avatar/BaseAvatar";
-// import {CloseIcon, Typography} from "qore-components";
+// import {CloseIcon, Typography} from "qucoon-components";
 //
 // export type BaseModalLayoutProps = {
 //     modalTitle?: string;

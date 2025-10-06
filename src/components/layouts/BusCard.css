@@ -3,6 +3,7 @@
   gap: 4px;
   background-color: #1a1a1a;
   flex: 1;
+  width: 100%;
   height: fit-content;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +36,65 @@
   display: flex;
   gap: 56px;
 }
+
+/* ==============================
+   RESPONSIVE TRAVEL DETAILS
+   ============================== */
+
+/* Default (Desktop) */
+.travel-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Tablet and below (≤1024px) */
+@media (max-width: 1024px) {
+  .travel-details {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .travel-details select,
+  .travel-details input,
+  .travel-details .dropdown {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .travel-details {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .travel-details select,
+  .travel-details input,
+  .travel-details .dropdown {
+    width: 100%;
+  }
+}
+
+/* Extra small screens (≤480px) */
+@media (max-width: 480px) {
+  .travel-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .travel-details select,
+  .travel-details input,
+  .travel-details .dropdown {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
 .time {
   display: flex;
   gap: 16px;
@@ -93,4 +153,80 @@
   color: #f79009;
   font-size: 1.7rem;
   font-weight: 600;
+}
+
+/* ==============================
+   RESPONSIVENESS — BUS CARD
+   ============================== */
+
+@media (max-width: 1024px) {
+  .bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .bus-details {
+    width: 100%;
+  }
+
+  .confirmation-section {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .amount {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bus-card {
+    padding: 24px;
+  }
+
+  .bus-company {
+    font-size: 1.2rem;
+  }
+
+  .ride-time {
+    font-size: 0.9rem;
+  }
+
+  .confirmation-section {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bus-card {
+    padding: 16px;
+  }
+
+  .bus-titles {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .travel-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .utilities {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bus-company {
+    font-size: 1rem;
+  }
+
+  .amount {
+    font-size: 1.3rem;
+  }
 }

@@ -11,3 +11,50 @@
   background-color: #1a1a1a;
   border-radius: 16px;
 }
+
+
+/* ==============================
+   RESPONSIVENESS — BUS FILTER
+   ============================== */
+
+@media (max-width: 1024px) {
+  .filter-container {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .filter-container > div {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    padding: 24px;
+  }
+
+  .filter-container > div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .filter-container label {
+    font-size: 0.8rem;
+  }
+
+  .filter-container select {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
