@@ -59,14 +59,14 @@ const LoginForm = (
             // type="email"
             placeholder="Enter your email"
             label="Enter email"
-            labelStyle={{ color: "white" }}
+            labelStyle={{ color: "white", fontFamily: "Poppins" }}
           />
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <BaseInput
               // type="password"
               placeholder="Enter your password"
               label="Enter password"
-              labelStyle={{ color: "white" }}
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
             />
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <p
@@ -82,6 +82,7 @@ const LoginForm = (
           </div>
           <BaseButton
             text="Login"
+            textStyle={{ fontFamily: "Poppins" }}
             style={{ backgroundColor: "#F79009" }}
             onClick={() => router.push(RouteConstant.screens.landingPage.path)}
           />
@@ -104,7 +105,7 @@ const LoginForm = (
             </p>
             <BaseButton
               text="Sign up"
-              textStyle={{ color: "#F79009" }}
+              textStyle={{ color: "#F79009", fontFamily: "Poppins" }}
               onClick={() => router.push(RouteConstant.auth.signup.path)}
               style={{
                 backgroundColor: "none",

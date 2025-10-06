@@ -101,26 +101,27 @@ const InitiateSignupForm = (
               // type="email"
               placeholder="Enter your email"
               label="Enter Email"
-              labelStyle={{ color: "white" }}
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{ width: "300px" }}
             />
             <BaseInput
               // type="password"
               placeholder="Enter your password"
               label="Enter password"
-              labelStyle={{ color: "white" }}
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{ width: "300px" }}
             />
           </div>
           <BaseButton
             text="Sign Up"
+            textStyle={{ fontFamily: "Poppins" }}
             style={{ backgroundColor: "#F79009", width: "300px" }}
             onClick={() => router.push(RouteConstant.screens.landingPage.path)}
           />
           <p className="texts">Or</p>
           <BaseButton
             text="Sign up with Google"
-            textStyle={{ color: "white" }}
+            textStyle={{ color: "white", fontFamily: "Poppins" }}
             style={{
               backgroundColor: "none",
               background: "none",

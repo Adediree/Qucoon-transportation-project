@@ -4,66 +4,56 @@
   box-sizing: border-box;
 }
 
+/* ===== MAIN CONTAINER ===== */
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1a1a1a;
-  /* border: 2px solid brown; */
-  width: fit-content;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px;
   border-radius: 8px;
 }
 
+/* The form card */
 .containerr {
-  /* border: 1px solid; */
-  width: 90%;
-  height: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-  align-items: center;
-  /* border: 1px solid green; */
-}
-
-.header-flex {
+  background-color: #1a1a1a;
+  width: fit-content;
+  padding: 40px;
+  border-radius: 8px;
   display: flex;
-  justify-content: center;
-  padding-top: 48px;
-  /* padding-bottom: 48px; */
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
 }
 
+/* ===== HEAD SECTION ===== */
 .head-flex {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
-  max-width: 330px;
-  /* padding: 32px; */
-  /* border: 1px solid yellow; */
 }
 
 .signup-texts {
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  /* border: 1px solid red; */
   width: 300px;
-  /* align-items: center; */
-  gap: 16px;
 }
 
 .texts {
   color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
+/* ===== FORM SECTION ===== */
 .input-flex {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
-  /* border: 2px solid red; */
+  gap: 20px;
   width: fit-content;
 }
 
@@ -71,4 +61,73 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* ===== RESPONSIVENESS ===== */
+
+/* Small screens (mobile) */
+@media (max-width: 640px) {
+  .signup-container {
+    padding: 20px;
+  }
+
+  .containerr {
+    width: 100%;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  .signup-texts {
+    width: 100%;
+  }
+
+  .texts {
+    font-size: 1rem;
+  }
+
+  .input-flex {
+    width: 100%;
+  }
+
+  .input-flex > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input-flex input,
+  .input-flex button {
+    width: 100% !important;
+    max-width: none;
+  }
+}
+
+/* Tablets (≥768px) */
+@media (min-width: 768px) {
+  .containerr {
+    padding: 32px 48px;
+  }
+
+  .texts {
+    font-size: 1.2rem;
+  }
+}
+
+/* Laptops (≥1024px) */
+@media (min-width: 1024px) {
+  .containerr {
+    max-width: 450px;
+  }
+
+  .texts {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large screens (≥1280px) */
+@media (min-width: 1280px) {
+  .containerr {
+    max-width: 480px;
+  }
 }
