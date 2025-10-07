@@ -64,6 +64,14 @@ export default function ConfirmPage() {
   const travelTime =
     departure && arrival ? calculateTravelTime(departure, arrival) : null;
 
+  const handleWhatsAppConfirm = () => {
+    const message = `Hi, I want to confirm my booking for ${from} to ${to} on ${date} with ${company}. Total: ${price}`;
+    window.open(
+      `https://wa.me/2348123456789?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
+
   return (
     <div className="overall-confirm-container">
       <div className="confirm-container">
@@ -162,7 +170,7 @@ export default function ConfirmPage() {
           <div className="buttons-div">
             <BaseButton
               text="Proceed To WhatsApp"
-              // onClick={() => router.push(RouteConstant.auth.login.path)}
+              onClick={handleWhatsAppConfirm}
               textStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{
                 padding: "16px",
