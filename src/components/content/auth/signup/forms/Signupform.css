@@ -1,10 +1,11 @@
+/* Signupform.css — Clean & Responsive */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== MAIN CONTAINER ===== */
 .signup-container {
   display: flex;
   justify-content: center;
@@ -12,122 +13,148 @@
   background-color: #1a1a1a;
   width: 100%;
   min-height: 100vh;
-  padding: 40px;
+  padding: 32px;
   border-radius: 8px;
 }
 
-/* The form card */
 .containerr {
   background-color: #1a1a1a;
-  width: fit-content;
-  padding: 40px;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  box-sizing: border-box;
 }
 
-/* ===== HEAD SECTION ===== */
 .head-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .signup-texts {
   text-align: center;
-  width: 300px;
+  color: white;
 }
 
-.texts {
-  color: white;
+.signup-texts .texts {
   font-size: 1.1rem;
   font-weight: 500;
 }
 
-/* ===== FORM SECTION ===== */
+/* Input Section */
 .input-flex {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
-  width: fit-content;
+  width: 100%;
+  align-items: center;
 }
 
-.field-1 {
+.input-flex > div {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
-/* ===== RESPONSIVENESS ===== */
+.input-flex input,
+.input-flex select,
+.input-flex textarea,
+.input-flex .BaseInput,
+.input-flex .BasePhoneNumberInput {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
-/* Small screens (mobile) */
-@media (max-width: 640px) {
+.input-flex button,
+.input-flex .BaseButton {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Footer */
+.input-flex > p {
+  text-align: center;
+  color: white;
+}
+
+.footer {
+  font-size: 0.85rem;
+  color: #cfcfcf;
+  text-align: center;
+}
+
+/* ------------------------------------------- */
+/* RESPONSIVENESS */
+/* ------------------------------------------- */
+
+@media (max-width: 768px) {
   .signup-container {
     padding: 20px;
   }
 
   .containerr {
     width: 100%;
-    padding: 24px;
-    border-radius: 8px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
   }
 
-  .signup-texts {
-    width: 100%;
+  .head-flex {
+    gap: 12px;
   }
 
-  .texts {
+  .signup-texts .texts {
     font-size: 1rem;
   }
 
   .input-flex {
-    width: 100%;
+    gap: 16px;
   }
 
   .input-flex > div {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .input-flex input,
-  .input-flex button {
-    width: 100% !important;
-    max-width: none;
+  .input-flex select,
+  .input-flex .BaseInput,
+  .input-flex .BasePhoneNumberInput {
+    width: 100%;
+  }
+
+  .input-flex button,
+  .input-flex .BaseButton {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 0.8rem;
   }
 }
 
-/* Tablets (≥768px) */
-@media (min-width: 768px) {
+/* Very small phones */
+@media (max-width: 480px) {
   .containerr {
-    padding: 32px 48px;
+    padding: 16px;
   }
 
-  .texts {
-    font-size: 1.2rem;
-  }
-}
-
-/* Laptops (≥1024px) */
-@media (min-width: 1024px) {
-  .containerr {
-    max-width: 450px;
+  .signup-texts .texts {
+    font-size: 0.95rem;
   }
 
-  .texts {
-    font-size: 1.25rem;
+  .input-flex {
+    gap: 12px;
   }
-}
 
-/* Large screens (≥1280px) */
-@media (min-width: 1280px) {
-  .containerr {
-    max-width: 480px;
+  .footer {
+    font-size: 0.75rem;
   }
 }

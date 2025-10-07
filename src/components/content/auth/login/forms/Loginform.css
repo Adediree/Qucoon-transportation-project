@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* ===== MAIN WRAPPER ===== */
 .login-container {
   display: flex;
   justify-content: center;
@@ -12,43 +11,44 @@
   background-color: #1a1a1a;
   width: 100%;
   min-height: 100vh;
-  padding: 40px;
+  padding: 40px 24px;
   border-radius: 8px;
 }
 
-/* ===== INNER CARD ===== */
 .container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.main-flex {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: fit-content;
-  padding: 40px;
-  border-radius: 8px;
-  background-color: #1a1a1a;
   gap: 24px;
-  box-sizing: border-box;
+  background-color: #1a1a1a;
+  padding: 32px;
+  border-radius: 12px;
+  align-items: center;
 }
 
-/* ===== TEXTS ===== */
 .login-texts {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   gap: 16px;
-  width: 300px;
 }
 
 .texts {
   color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* ===== FORM ===== */
 .form-flex {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  align-items: stretch;
 }
 
 .field-1 {
@@ -57,65 +57,48 @@
   gap: 8px;
 }
 
-/* ===== RESPONSIVENESS ===== */
+/* -------------------- Responsive Breakpoints -------------------- */
 
-/* Small phones and below (max 640px) */
-@media (max-width: 640px) {
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
   .login-container {
-    padding: 20px;
+    padding: 32px 16px;
   }
 
-  .container {
-    width: 100%;
-    padding: 24px;
-    border-radius: 8px;
-  }
-
-  .login-texts {
-    width: 100%;
+  .main-flex {
+    padding: 24px 20px;
+    gap: 20px;
   }
 
   .texts {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 24px 12px;
   }
 
-  .form-flex {
-    width: 100%;
+  .main-flex {
+    padding: 20px 16px;
     gap: 16px;
   }
 
-  .form-flex input,
-  .form-flex button {
+  .texts {
+    font-size: 0.9rem;
+  }
+
+  form p {
+    font-size: 0.7rem;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .BaseButton {
     width: 100% !important;
-    max-width: none;
-  }
-}
-
-/* Tablets (≥768px) */
-@media (min-width: 768px) {
-  .container {
-    padding: 32px 48px;
-  }
-
-  .texts {
-    font-size: 1.2rem;
-  }
-}
-
-/* Laptops and up (≥1024px) */
-@media (min-width: 1024px) {
-  .container {
-    max-width: 400px;
-  }
-
-  .texts {
-    font-size: 1.25rem;
-  }
-}
-
-/* Large screens (≥1280px) */
-@media (min-width: 1280px) {
-  .container {
-    max-width: 430px;
   }
 }
