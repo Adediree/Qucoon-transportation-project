@@ -1,4 +1,4 @@
-.overall-confirm-container {
+.overall-submit-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -9,7 +9,7 @@
 }
 
 /* ===== MAIN CARD CONTAINER ===== */
-.confirm-container {
+.submit-container {
   display: flex;
   flex-direction: column;
   width: 900px;
@@ -17,7 +17,7 @@
 }
 
 /* ===== HEADER ===== */
-.confirm-header {
+.submit-header {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -143,6 +143,28 @@
   gap: 8px;
 }
 
+.follow-up {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 16px;
+  width: 100%;
+  background-color: grey;
+  border-radius: 8px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.steps-description {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 /* ===== BUTTONS ===== */
 .buttons-div {
   display: flex;
@@ -160,11 +182,11 @@
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .overall-confirm-container {
+  .overall-submit-container {
     padding: 32px 40px;
   }
 
-  .confirm-container {
+  .submit-container {
     width: 100%;
   }
 
@@ -180,11 +202,11 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .overall-confirm-container {
+  .overall-submit-container {
     padding: 24px;
   }
 
-  .confirm-header {
+  .submit-header {
     padding: 20px;
   }
 
@@ -240,11 +262,11 @@
 
 /* Small phones */
 @media (max-width: 480px) {
-  .overall-confirm-container {
+  .overall-submit-container {
     padding: 16px;
   }
 
-  .confirm-header {
+  .submit-header {
     padding: 16px;
   }
 

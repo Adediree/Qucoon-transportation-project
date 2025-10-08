@@ -14,12 +14,17 @@ import {
 } from "lucide-react";
 import "./page.css";
 import { PaymentInstructionCard } from "@/components/layouts/PaymentInstructionCard";
-import { BaseButton } from "qucoon-components";
+import { BaseButton, BaseDatePicker, BaseInput } from "qucoon-components";
 import { useState } from "react";
 
-export default function ConfirmPage() {
+export default function submitPage() {
   const [receiptImage, setReceiptImage] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bankName, setBankName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [amountPaid, setAmountPaid] = useState("");
+    const [referenceNumber, setReferenceNumber] = useState("");
+
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -47,9 +52,9 @@ export default function ConfirmPage() {
   };
 
   return (
-    <div className="overall-confirm-container">
-      <div className="confirm-container">
-        <div className="confirm-header">
+    <div className="overall-submit-container">
+      <div className="submit-container">
+        <div className="submit-header">
           <p className="header-main">Submit Your Receipt</p>
           <p className="header-sub">
             To complete your booking, please submit your payment receipt. You
@@ -67,11 +72,20 @@ export default function ConfirmPage() {
               backgroundColor="rgba(127, 29, 29, 0.2)"
             />
           </div>
-          <form onSubmit={handleSubmit}>
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+              alignItems: "center",
+            }}
+            onSubmit={handleSubmit}
+          >
             <div
               style={{
                 border: "2px dashed #9CA3AF", // manually apply dashed border
                 borderRadius: "12px",
+                width: "100%",
                 padding: "2rem",
                 textAlign: "center",
                 transition: "border-color 0.3s ease",
@@ -140,22 +154,99 @@ export default function ConfirmPage() {
                 )}
               </div>
             </div>
-          </form>
-          <div className="buttons-div">
-            <BaseButton
-              text="Submit Receipt"
-              // onClick={() => router.push(RouteConstant.auth.login.path)}
-              textStyle={{ color: "white", fontFamily: "Poppins" }}
+            <p>Or Enter Payment Details</p>
+            <BaseInput
+              // type="email"
+              placeholder="e.g. FirstBank"
+              label="Bank Name *"
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{
-                padding: "16px",
                 width: "100%",
-                backgroundColor: "#f79009",
-                // background: "none",
-                // border: "1px solid",
-                // borderColor: "#D0D5DD",
+                fontFamily: "Poppins",
+                backgroundColor: "grey",
               }}
             />
-          </div>
+            <BaseInput
+              // type="email"
+              placeholder="Enter Account Number"
+              label="Account Number *"
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
+              style={{
+                width: "100%",
+                fontFamily: "Poppins",
+                backgroundColor: "grey",
+              }}
+            />
+            <BaseInput
+              // type="email"
+              placeholder="e.g. 5000"
+              label="Amount Paid *"
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
+              style={{
+                width: "100%",
+                fontFamily: "Poppins",
+                backgroundColor: "grey",
+              }}
+            />
+            <BaseDatePicker
+              label="Transaction Date *"
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
+              // selected={singleDate}
+              // onSelect={setSingleDate}
+              // value={departureDate}
+              // onChange={(date) => setDepartureDate(date)}
+              style={{
+                // width: "400px",
+                width: "100%",
+                paddingLeft: "32px",
+                fontFamily: "Poppins",
+                background: "none",
+              }}
+            />
+            <BaseInput
+              // type="email"
+              placeholder="Enter reference number if available"
+              label="Reference Number (Optional)"
+              labelStyle={{ color: "white", fontFamily: "Poppins" }}
+              style={{
+                width: "100%",
+                fontFamily: "Poppins",
+                backgroundColor: "grey",
+              }}
+            />
+            <div className="follow-up">
+              <p style={{ color: "black" }}>What happens next?</p>
+              <div className="steps">
+                <p className="steps-description">
+                  1. Our team will verify your payment details
+                </p>
+                <p className="steps-description">
+                  2. You'll receive a confirmation via WhatsApp
+                </p>
+                <p className="steps-description">
+                  3. Your e-ticket will be sent with QR code
+                </p>
+                <p className="steps-description">
+                  4. Present the QR code at the boarding gate
+                </p>
+              </div>
+            </div>
+            <div className="buttons-div">
+              <BaseButton
+                text="Submit Receipt"
+                // onClick={() => router.push(RouteConstant.auth.login.path)}
+                textStyle={{ color: "white", fontFamily: "Poppins" }}
+                style={{
+                  padding: "16px",
+                  width: "100%",
+                  backgroundColor: "#f79009",
+                  // background: "none",
+                  // border: "1px solid",
+                  // borderColor: "#D0D5DD",
+                }}
+              />
+            </div>
+          </form>
         </div>
       </div>
     </div>
