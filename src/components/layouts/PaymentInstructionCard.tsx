@@ -2,11 +2,11 @@ import React from "react";
 import "./PaymentInstructionCard.css";
 
 interface PaymentInstructionCardProps {
-  stepNumber: number;
+  stepNumber?: number;
   title: string;
   subtitle: string;
-  icon: React.ReactNode; // 👈 icon passed as a prop
-  backgroundColor?: string; // optional background
+  icon: React.ReactNode;
+  backgroundColor?: string;
 }
 
 export const PaymentInstructionCard: React.FC<PaymentInstructionCardProps> = ({

@@ -44,6 +44,10 @@ export const RouteConstant = {
       name: "",
       path: "/screens/confirm-screen",
     },
+    submitScreen: {
+      name: "",
+      path: "/screens/submit-screen",
+    },
   },
 
   dashboard: {

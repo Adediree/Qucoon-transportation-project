@@ -1,0 +1,271 @@
+.overall-confirm-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  padding: 32px 72px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ===== MAIN CARD CONTAINER ===== */
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  max-width: 100%;
+}
+
+/* ===== HEADER ===== */
+.confirm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: #f79009;
+  padding: 24px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.header-main {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.header-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+}
+
+/* ===== MAIN BODY ===== */
+.background {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: #1a1a1a;
+  padding: 32px 24px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-sizing: border-box;
+}
+
+/* ===== RIDE DETAILS ===== */
+.ride-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-info {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+
+.details-div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-right: 48px;
+}
+
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.route {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.route-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.route-description {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.ride-route {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.price {
+  color: #f79009;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===== EXTRA INFO ===== */
+.extra-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+  padding: 16px 80px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.route-container-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===== PAYMENT INSTRUCTIONS ===== */
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.instruction-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== BUTTONS ===== */
+.buttons-div {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.buttons-div button {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ===== RESPONSIVENESS ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .overall-confirm-container {
+    padding: 32px 40px;
+  }
+
+  .confirm-container {
+    width: 100%;
+  }
+
+  .details-div {
+    padding-right: 0;
+    gap: 16px;
+  }
+
+  .extra-info {
+    padding: 16px 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .overall-confirm-container {
+    padding: 24px;
+  }
+
+  .confirm-header {
+    padding: 20px;
+  }
+
+  .header-main {
+    font-size: 1.3rem;
+  }
+
+  .header-sub {
+    font-size: 0.9rem;
+  }
+
+  .background {
+    padding: 24px 16px;
+    gap: 32px;
+  }
+
+  .details-div {
+    flex-direction: column;
+    padding-right: 0;
+    gap: 16px;
+  }
+
+  .section-1 {
+    width: 100%;
+  }
+
+  .extra-info {
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .buttons-div {
+    flex-direction: column;
+  }
+
+  .buttons-div button {
+    width: 100%;
+  }
+
+  .route {
+    gap: 12px;
+  }
+
+  .ride-route {
+    font-size: 0.95rem;
+  }
+
+  .section-info {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .overall-confirm-container {
+    padding: 16px;
+  }
+
+  .confirm-header {
+    padding: 16px;
+  }
+
+  .background {
+    padding: 16px;
+  }
+
+  .extra-info {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .header-main {
+    font-size: 1.1rem;
+  }
+
+  .header-sub {
+    font-size: 0.85rem;
+  }
+
+  .buttons-div {
+    gap: 12px;
+  }
+}

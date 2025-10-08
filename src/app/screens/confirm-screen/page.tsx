@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowRight,
   Building2,
@@ -13,9 +13,11 @@ import {
 import "./page.css";
 import { PaymentInstructionCard } from "@/components/layouts/PaymentInstructionCard";
 import { BaseButton } from "qucoon-components";
+import { RouteConstant } from "@/utilities/constants/routeConstant";
 
 export default function ConfirmPage() {
   const searchParams = useSearchParams();
+  const router =  useRouter();
 
   const from = searchParams.get("from");
   const to = searchParams.get("to");
@@ -183,7 +185,7 @@ export default function ConfirmPage() {
             />
             <BaseButton
               text="Submit Receipt"
-              // onClick={() => router.push(RouteConstant.auth.login.path)}
+              onClick={() => router.push(RouteConstant.screens.submitScreen.path)}
               textStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{
                 padding: "16px",
