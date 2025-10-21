@@ -56,16 +56,23 @@ const LoginForm = (
         </div>
         <form className="form-flex">
           <BaseInput
-            // type="email"
             placeholder="Enter your email"
-            label="Enter email"
+            label="Email"
             labelStyle={{ color: "white", fontFamily: "Poppins" }}
+            style={{ width: "300px" }}
           />
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "300px",
+              gap: "6px",
+            }}
+          >
             <BaseInput
-              // type="password"
               placeholder="Enter your password"
-              label="Enter password"
+              label="Password"
               labelStyle={{ color: "white", fontFamily: "Poppins" }}
             />
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -80,12 +87,14 @@ const LoginForm = (
               </p>
             </div>
           </div>
+
           <BaseButton
             text="Login"
             textStyle={{ fontFamily: "Poppins" }}
-            style={{ backgroundColor: "#F79009" }}
+            style={{ backgroundColor: "#F79009", width: "300px" }}
             onClick={() => router.push(RouteConstant.screens.landingPage.path)}
           />
+
           <div
             style={{
               display: "flex",
@@ -110,15 +119,12 @@ const LoginForm = (
               style={{
                 backgroundColor: "none",
                 background: "none",
-                // width: "fit-content",
                 padding: "0px",
-                //  maxHeight: "40px",
-                // border: "1px solid",
-                // borderColor: "#D0D5DD",
               }}
             />
           </div>
         </form>
+
         <p style={{ fontSize: "0.8rem", color: "white" }}>
           Qucoon. All rights reserved. © 2025
         </p>

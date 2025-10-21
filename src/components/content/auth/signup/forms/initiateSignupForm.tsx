@@ -95,19 +95,24 @@ const InitiateSignupForm = (
         </div>
         <form className="input-flex">
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "fit-content",
+              gap: "20px",
+            }}
           >
             <BaseInput
               // type="email"
               placeholder="Enter your email"
-              label="Enter Email"
+              label="Email"
               labelStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{ width: "300px" }}
             />
             <BaseInput
               // type="password"
               placeholder="Enter your password"
-              label="Enter password"
+              label="Password"
               labelStyle={{ color: "white", fontFamily: "Poppins" }}
               style={{ width: "300px" }}
             />
@@ -121,6 +126,13 @@ const InitiateSignupForm = (
           <p className="texts">Or</p>
           <BaseButton
             text="Sign up with Google"
+            startIcon={
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google"
+                style={{ width: "18px", height: "18px" }}
+              />
+            }
             textStyle={{ color: "white", fontFamily: "Poppins" }}
             style={{
               backgroundColor: "none",

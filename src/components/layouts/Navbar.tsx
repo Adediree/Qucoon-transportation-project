@@ -5,6 +5,7 @@ import { BaseButton } from "qucoon-components";
 import { useRouter } from "next/navigation";
 import { RouteConstant } from "@/utilities/constants/routeConstant";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 interface NavBarProps {
   logoSrc?: string;
@@ -14,8 +15,8 @@ interface NavBarProps {
 }
 
 export const NavBar: React.FC<NavBarProps> = ({
-  logoSrc,
-  alt,
+  logoSrc = "/Logo.jpg",
+  alt = "Logo",
   title,
   onNavigate,
 }) => {
@@ -23,14 +24,23 @@ export const NavBar: React.FC<NavBarProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="nav-container">
-      {title && (
-        <div className="title-text">
-          <p className="nav-title">{title}</p>
+    <nav className="nav-container">
+      <div className="title-text">
+        {/* ✅ Wrap Image properly and scale */}
+        <div className="logo-wrapper">
+          <Image
+            src={logoSrc}
+            alt={alt}
+            width={150}
+            height={50}
+            priority
+            className="nav-logo"
+          />
         </div>
-      )}
+        {title && <p className="nav-title">{title}</p>}
+      </div>
 
-      {/* Hamburger menu button (mobile only) */}
+      {/* Hamburger button */}
       <button
         className="hamburger"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -43,27 +53,23 @@ export const NavBar: React.FC<NavBarProps> = ({
         )}
       </button>
 
-      {/* Regular desktop buttons */}
+      {/* Desktop buttons */}
       <div className="button-container">
         <BaseButton
           text="Login"
           onClick={() => router.push(RouteConstant.auth.login.path)}
           textStyle={{ color: "white" }}
-          style={{
-            background: "none",
-          }}
+          style={{ background: "none" }}
         />
         <BaseButton
           text="Sign up"
           onClick={() => router.push(RouteConstant.auth.signup.path)}
           textStyle={{ color: "white" }}
-          style={{
-            background: "none",
-          }}
+          style={{ background: "none" }}
         />
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
           <BaseButton
@@ -73,9 +79,7 @@ export const NavBar: React.FC<NavBarProps> = ({
               setIsMenuOpen(false);
             }}
             textStyle={{ color: "white" }}
-            style={{
-              background: "none",
-            }}
+            style={{ background: "none" }}
           />
           <BaseButton
             text="Sign up"
@@ -84,12 +88,10 @@ export const NavBar: React.FC<NavBarProps> = ({
               setIsMenuOpen(false);
             }}
             textStyle={{ color: "white" }}
-            style={{
-              background: "none",
-            }}
+            style={{ background: "none" }}
           />
         </div>
       )}
-    </div>
+    </nav>
   );
 };

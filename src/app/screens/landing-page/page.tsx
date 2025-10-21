@@ -185,8 +185,13 @@ export default function LandingPage() {
             }}
           />
           <BaseButton
-            text="Search"
-            textStyle={{ color: "black", fontFamily: "Poppins" }}
+            text="Price"
+            textStyle={{
+              color: "#f79009",
+              fontFamily: "Poppins",
+              fontSize: "1.2rem",
+              fontWeight: "600",
+            }}
             onClick={handleSearch}
             style={{
               backgroundColor: "white",

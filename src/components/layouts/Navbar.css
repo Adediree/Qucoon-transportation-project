@@ -3,19 +3,33 @@
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  height: 50px;
-  padding-top: 32px;
-  padding-left: 72px;
-  padding-right: 72px;
-  padding-bottom: 32px;
+  padding: 16px 72px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  z-index: 100;
 }
 
+/* Logo & title section */
 .title-text {
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+/* ✅ Ensure logo is visible and scaled properly */
+.nav-logo {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-title {
@@ -26,7 +40,7 @@
 
 .button-container {
   display: flex;
-  gap: 4px;
+  gap: 8px;
 }
 
 /* Hamburger icon */
@@ -42,7 +56,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #111; /* slightly lighter than black for visibility */
+  background-color: #111;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -54,10 +68,7 @@
   z-index: 10;
 }
 
-/* ============================
-   RESPONSIVENESS
-   ============================ */
-
+/* ============= RESPONSIVENESS ============= */
 @media (max-width: 768px) {
   .button-container {
     display: none;
@@ -79,29 +90,5 @@
 
   .mobile-menu {
     padding: 16px 16px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .nav-title {
-    font-size: 1.3rem;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .nav-title {
-    font-size: 1.4rem;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1536px) {
-  .nav-title {
-    font-size: 1.45rem;
-  }
-}
-
-@media (min-width: 1536px) {
-  .nav-title {
-    font-size: 1.5rem;
   }
 }

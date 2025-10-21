@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* ✅ Prevent scrolling */
+}
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* ✅ Fixed full viewport height */
   padding: 40px 24px;
   border-radius: 8px;
 }
@@ -25,10 +31,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   padding: 32px;
   border-radius: 12px;
   align-items: center;
+  justify-content: center;
+  height: 100%; /* ✅ Keeps content centered */
 }
 
 .login-texts {
@@ -36,19 +44,28 @@
   flex-direction: column;
   text-align: center;
   gap: 16px;
+  width: fit-content;
+  margin-top: 30px; /* ✅ Adds space below navbar */
 }
 
 .texts {
-  color: white;
-  font-size: 1rem;
-  line-height: 1.5;
+  color: #f79009;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: fit-content;
 }
 
 .form-flex {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
+  align-items: center; /* center horizontally */
+  gap: 16px;
+}
+
+.form-flex > * {
+  width: 300px; /* make email, password, and button same width */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .field-1 {
@@ -57,9 +74,15 @@
   gap: 8px;
 }
 
+.container > p:last-child {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  margin-bottom: 24px; /* ✅ Adds breathing space below footer text */
+}
+
 /* -------------------- Responsive Breakpoints -------------------- */
 
-/* Medium screens (tablets) */
 @media (max-width: 768px) {
   .login-container {
     padding: 32px 16px;
@@ -71,14 +94,13 @@
   }
 
   .texts {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 }
 
-/* Small screens (mobile) */
 @media (max-width: 480px) {
   .login-container {
-    padding: 24px 12px;
+    padding: 20px 12px;
   }
 
   .main-flex {
