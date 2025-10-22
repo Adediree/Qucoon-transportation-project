@@ -1,0 +1,90 @@
+/* ====== HERO SLIDER FIXED HEIGHT + IMAGE FIT ====== */
+
+/* Main container */
+.container-1 {
+  position: relative !important;
+  width: 100% !important;
+  height: 45vh !important; /* Adjust this to 30vh, 40vh if you want */
+  max-height: 45vh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  box-sizing: border-box !important;
+}
+
+/* Image slider wrapper */
+.container-1 .slider {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Each slide (image) */
+.container-1 .slide {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+
+  object-fit: fill !important; /* stretch image to fit width + height exactly */
+  object-position: center center !important;
+  background-color: #000 !important;
+
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out !important;
+}
+
+/* Visible image */
+.container-1 .slide.active {
+  opacity: 1 !important;
+  z-index: 1 !important;
+}
+
+/* Slight dark overlay for readability */
+.container-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2 !important;
+}
+
+/* Text content on top of the images */
+.container-1 .hero-text-container {
+  position: relative !important;
+  z-index: 3 !important;
+  text-align: center !important;
+  padding: 1rem !important;
+}
+
+.text-1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.text-2 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Defensive rules — ensure no parent styles stretch children */
+.container-1,
+.container-1 .slider,
+.container-1 .slide,
+.container-1 img {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  box-sizing: border-box !important;
+}

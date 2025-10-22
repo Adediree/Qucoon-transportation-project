@@ -13,6 +13,7 @@ import { RouteCard } from "@/components/layouts/RouteCard";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RouteConstant } from "@/utilities/constants/routeConstant";
+import AdvertisementSlider from "@/components/layouts/AdvertisementSlider";
 
 export default function LandingPage() {
   const [fromLocation, setFromLocation] = useState("");
@@ -71,16 +72,19 @@ export default function LandingPage() {
     );
   };
 
+  // const adImages = ["/Bus.jpg", "/Abuja.jpg", "/Benin.jpg", "/Lagos.jpg"];
+
   return (
     <div className="overall-container">
-      <div className="container-1">
+      {/* <div className="container-1">
         <div className="hero-text-container">
           <p className="text-1">Book Your Next Trip</p>
           <p className="text-2">
             Seamlessly find and book bus tickets across Nigeria
           </p>
         </div>
-      </div>
+      </div> */}
+      <AdvertisementSlider/>
       <div className="container-2">
         <div className="ride-details">
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
