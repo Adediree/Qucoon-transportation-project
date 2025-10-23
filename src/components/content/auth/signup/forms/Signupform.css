@@ -2,7 +2,7 @@
 :root {
   /* adjust this to match your real navbar height */
   --navbar-height: 96px;
-  --gutter-top: 16px; /* extra breathing space above the heading */
+  --gutter-top: 8px; /* extra breathing space above the heading */
 }
 
 /* prevent full-page scroll if you want fixed page */
@@ -115,4 +115,28 @@ body {
     transform: scale(0.95);
     transform-origin: top center;
   }
+}
+
+/* Wrap each input + its error together */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+/* The input itself */
+.input-group .BaseInput {
+  width: 300px;
+}
+
+/* Error text inside the same group — small and compact */
+.input-group .input-error {
+  height: 6px; /* reserve minimal space */
+  font-size: 0.7rem;
+  color: #ff6b6b;
+  margin-top: 2px;
+  text-align: left;
+  width: 300px;
 }

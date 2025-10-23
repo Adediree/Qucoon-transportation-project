@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RouteConstant } from "@/utilities/constants/routeConstant";
 import AdvertisementSlider from "@/components/layouts/AdvertisementSlider";
+import { useFormik } from "formik";
 
 export default function LandingPage() {
   const [fromLocation, setFromLocation] = useState("");
@@ -60,6 +61,20 @@ export default function LandingPage() {
     },
   ];
 
+    const formik = useFormik({
+      initialValues: {
+        departureDate: "",
+      },
+      onSubmit: (values) => {
+        alert(`Selected Date: ${values.departureDate}`);
+        console.log("Formik values:", values);
+      },
+    });
+
+    const handleDateChange = (date: unknown) => {
+      formik.setFieldValue("departureDate", date);
+    };
+
   const handleSearch = () => {
     if (!fromLocation || !toLocation) {
       alert("Please fill in all fields");
@@ -84,7 +99,7 @@ export default function LandingPage() {
           </p>
         </div>
       </div> */}
-      <AdvertisementSlider/>
+      <AdvertisementSlider />
       <div className="container-2">
         <div className="ride-details">
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
@@ -178,12 +193,9 @@ export default function LandingPage() {
           <BaseDatePicker
             label="Departure Date"
             labelStyle={{ color: "white", fontFamily: "Poppins" }}
-            selected={singleDate}
-            // onSelect={setSingleDate}
-            // value={departureDate}
-            // onChange={(date) => setDepartureDate(date)}
+            selected={formik.values.departureDate}
+            onSelect={handleDateChange} // ✅ syncs with Formik
             style={{
-              // width: "400px",
               paddingLeft: "32px",
               fontFamily: "Poppins",
             }}
@@ -206,7 +218,7 @@ export default function LandingPage() {
             }}
           />
         </div>
-        <div className="feedback-container">
+        {/* <div className="feedback-container">
           <div className="customer-rating">
             <Star size={40} color="#F97066" />
             <p className="rating-number">50,000+</p>
@@ -227,9 +239,9 @@ export default function LandingPage() {
             <p className="rating-number">100%</p>
             <p className="rating-text">Digital Tickets</p>
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="Container-3">
+      {/* <div className="Container-3">
         <p className="header-text">Featured Destinations</p>
         <div className="destination-container">
           <DestinationCard
@@ -248,15 +260,15 @@ export default function LandingPage() {
             subtitle="Experience the garden city's beauty"
           />
         </div>
-      </div>
-      <div className="Container-4">
+      </div> */}
+      {/* <div className="Container-4">
         <p className="header-text">Popular Routes</p>
         <div className="destination-container">
           <RouteCard origin="Lagos" destination="Abuja" price="5000" />
           <RouteCard origin="Abuja" destination="Port-Harcourt" price="6000" />
           <RouteCard origin="Benin" destination="Zaria" price="7000" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

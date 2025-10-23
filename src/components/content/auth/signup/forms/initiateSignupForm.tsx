@@ -1,6 +1,6 @@
 "use client";
 import "./Signupform.css";
-import { BaseButton, BaseInput, BasePhoneNumberInput } from "qucoon-components";
+import { BaseButton, BaseInput } from "qucoon-components";
 import {
   InitiateEnrollmentRequest,
   initiateEnrollmentRequestInit,
@@ -60,12 +60,6 @@ const InitiateSignupForm = (
               });
               router.push(RouteConstant.auth.login.path);
             }
-            // Complete signup with OTP
-            // dispatch(authStore.mutation.setCompleteEnrollmentFlowPayload({
-            //     ...authState?.completeEnrollmentFlowPayload, ...request,
-            //     otp: otp
-            // }))
-            // router.push(RouteConstant.auth.completeSignup.path)
           },
           onResend: async () => {
             console.log("Otp resend");
@@ -77,10 +71,12 @@ const InitiateSignupForm = (
       console.error("Enrollment initiation failed:", err);
     }
   };
+
   const initialValues = {
     ...initiateEnrollmentRequestInit,
     ...completeEnrollmentRequestInit,
   };
+
   const formik = useFormik({
     initialValues,
     onSubmit: handleSignUp,
@@ -93,7 +89,9 @@ const InitiateSignupForm = (
         <div className="signup-texts">
           <p className="texts">Get started with us!</p>
         </div>
-        <form className="input-flex">
+
+        {/* ✅ Formik connected form */}
+        <form className="input-flex" onSubmit={formik.handleSubmit}>
           <div
             style={{
               display: "flex",
@@ -102,28 +100,54 @@ const InitiateSignupForm = (
               gap: "20px",
             }}
           >
-            <BaseInput
-              // type="email"
-              placeholder="Enter your email"
-              label="Email"
-              labelStyle={{ color: "white", fontFamily: "Poppins" }}
-              style={{ width: "300px" }}
-            />
-            <BaseInput
-              // type="password"
-              placeholder="Enter your password"
-              label="Password"
-              labelStyle={{ color: "white", fontFamily: "Poppins" }}
-              style={{ width: "300px" }}
-            />
+            <div className="input-group">
+              <BaseInput
+                name="userEmail"
+                placeholder="Enter your email"
+                label="Email"
+                labelStyle={{ color: "white", fontFamily: "Poppins" }}
+                style={{ width: "300px" }}
+                value={formik.values.userEmail}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <div className="input-error">
+                {formik.touched.userEmail &&
+                  formik.errors.userEmail &&
+                  formik.errors.userEmail}
+              </div>
+            </div>
+
+            <div className="input-group">
+              <BaseInput
+                name="userPassword"
+                // type="password"
+                placeholder="Enter your password"
+                label="Password"
+                labelStyle={{ color: "white", fontFamily: "Poppins" }}
+                style={{ width: "300px" }}
+                value={formik.values.userPassword}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <div className="input-error">
+                {formik.touched.userPassword &&
+                  formik.errors.userPassword &&
+                  formik.errors.userPassword}
+              </div>
+            </div>
           </div>
+
           <BaseButton
-            text="Sign Up"
+            text={isLoading ? "Signing Up..." : "Sign Up"}
             textStyle={{ fontFamily: "Poppins" }}
             style={{ backgroundColor: "#F79009", width: "300px" }}
-            onClick={() => router.push(RouteConstant.screens.landingPage.path)}
+            type="submit"
+            disabled={isLoading}
           />
+
           <p className="texts">Or</p>
+
           <BaseButton
             text="Sign up with Google"
             startIcon={
@@ -135,13 +159,13 @@ const InitiateSignupForm = (
             }
             textStyle={{ color: "white", fontFamily: "Poppins" }}
             style={{
-              backgroundColor: "none",
               background: "none",
               width: "300px",
               border: "1px solid",
               borderColor: "#D0D5DD",
             }}
           />
+
           <div
             style={{
               display: "flex",
@@ -163,20 +187,16 @@ const InitiateSignupForm = (
               text="Log in"
               textStyle={{ color: "#F79009" }}
               style={{
-                backgroundColor: "none",
                 background: "none",
-                // width: "fit-content",
                 padding: "0px",
-                //  maxHeight: "40px",
-                // border: "1px solid",
-                // borderColor: "#D0D5DD",
               }}
               onClick={() => router.push(RouteConstant.auth.login.path)}
             />
           </div>
         </form>
+
         <p style={{ fontSize: "0.8rem", color: "white" }}>
-          Qucoon. All rights reserved. © 2025
+          Qucoon. All rights reserved. © 2025
         </p>
       </main>
     </div>
