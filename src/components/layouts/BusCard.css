@@ -155,6 +155,12 @@
   font-weight: 600;
 }
 
+.BusImage{
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* ==============================
    RESPONSIVENESS — BUS CARD
    ============================== */

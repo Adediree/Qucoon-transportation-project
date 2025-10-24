@@ -21,13 +21,13 @@ export const BusFilter: React.FC<BusFilterProps> = ({
     { value: "", label: "All Prices" },
     { value: "under ₦4000", label: "Under ₦4000" },
     { value: "₦4000 - ₦8000", label: "₦4000 - ₦8000" },
-    { value: "₦4000 - ₦8000", label: "₦4000 - ₦8000" },
+    { value: "₦5000 - ₦10000", label: "₦5000 - ₦10000" },
   ];
   const DepartureTimes = [
     { value: "", label: "All Times" },
     { value: "9AM", label: "9AM" },
-    { value: "9AM", label: "9AM" },
-    { value: "9AM", label: "9AM" },
+    { value: "8AM", label: "8AM" },
+    { value: "6AM", label: "6AM" },
   ];
   const BusTypes = [
     { value: "", label: "All Times" },

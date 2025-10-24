@@ -5,6 +5,8 @@ import "./BusCard.css";
 
 import { Clock, Users, Wifi, MapPin } from "lucide-react";
 import { BaseButton } from "qucoon-components";
+import Image from "next/image";
+const BusImage = "/BusImage.jpg";
 
 type BusCardProps = {
   BusCompany: string;
@@ -87,6 +89,13 @@ export const BusCard: React.FC<BusCardProps> = ({
         </div>
       </div>
       <div className="confirmation-section">
+        <Image
+          src={BusImage}
+          alt={""}
+          width={250}
+          height={250}
+          className="BusImage"
+        />
         <p className="amount">₦{Price}</p>
         <p className="time-description">per Seat</p>
         <BaseButton
